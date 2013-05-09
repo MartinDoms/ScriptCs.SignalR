@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ScriptCs.SignalR</id>
+    <version>1.0.3-pre</version>
+    <authors>Martin Doms</authors>
+    <owners>Martin Doms</owners>
+    <projectUrl>https://github.com/MartinDoms/ScriptCs.SignalR</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Some simple helpers for writing SignalR in C# scripts. The main purpose of this is to allow sending messages to clients without having to use the dynamic object, which is not supported by Roslyn (and therefore ScriptCs) at the time of writing.</description>
+    <copyright>Copyright 2013</copyright>
+    <tags>SignalR ScriptCs</tags>
+    <dependencies>
+      <dependency id="Microsoft.AspNet.SignalR" version="1.0.1" />
+	  <dependency id="Microsoft.AspNet.SignalR.Core" version="1.0.1" />
+	  <dependency id="Microsoft.AspNet.SignalR.Owin" version="1.0.1" />
+	  <dependency id="Microsoft.AspNet.SignalR.SystemWeb" version="1.0.1" />
+	  <dependency id="Microsoft.Owin.Host.SystemWeb" version="1.0.1" />
+	  <dependency id="Microsoft.Owin.Host.HttpListener" version="0.21.0-pre" />
+	  <dependency id="Microsoft.Owin.Hosting" version="0.21.0-pre" />
+	  <dependency id="Owin" version="1.0" />
+      <dependency id="ScriptCs.Contracts" version="0.3.2" />
+    </dependencies>
+  </metadata>
+</package>

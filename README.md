@@ -11,6 +11,14 @@ Some simple helpers for writing SignalR in C# scripts. The main purpose of this 
 #Quick start
 Here's a complete ScriptCs example using our extensions. Because dynamic is only ever used in the compiled assembly this runs in Roslyn without issues.
 
+We are currently using a pre-release package on NuGet due to a dependency on Owin hosting pre-release packages. **Use the -pre flag when you install rom NuGet**.
+
+To run this example in some working directory:
+* Install ScriptCs.SignalR using Nuget (scriptcs installer does not currently support pre-release packages). `nuget install ScriptCs.SignalR -pre -o packages`
+* Run `scriptcs -install`
+* Paste the code below into your editor as save as `server.csx`
+* Run `scriptcs server.csx`
+
 ```csharp
 var signalR = Require<SignalR>();
 signalR.CreateServer("http://localhost:8080");
@@ -27,6 +35,4 @@ public class MyHub : Hub
 		Clients.SendToCaller("addMessage", "Hello caller! Thanks for sending " + message);	
 	}
 }
-
-
 ```

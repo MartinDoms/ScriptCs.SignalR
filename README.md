@@ -11,6 +11,7 @@ Some simple helpers for writing SignalR in C# scripts. The main purpose of this 
 #Quick start
 Here's a complete ScriptCs example using our extensions. Because dynamic is only ever used in the compiled assembly this runs in Roslyn without issues.
 
+```csharp
 using System.Threading.Tasks;
 using Microsoft.AspNet.SignalR;
 using System.Web;
@@ -49,3 +50,4 @@ public class MyHub : Hub
 		Clients.SendToCaller("addMessage", "hello caller!");
 	}
 }
+```

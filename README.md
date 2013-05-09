@@ -5,8 +5,8 @@ ScriptCs.SignalR
 Some simple helpers for writing SignalR in C# scripts. The main purpose of this is to allow sending messages to clients without having to use the dynamic object, which is not supported by Roslyn (and therefore ScriptCs) at the time of writing.
 
 #How do I get it?
-* This package is available on Nuget under the name ScriptCs.SignalR.
-* Install from scriptcs: scriptcs -install ScriptCs.SignalR
+* This package is available on Nuget under the name ScriptCs.SignalR as a pre-release package. Use the -pre flag.
+* Install from NuGet: `NuGet install SctipCS.SignalR`
 
 #Quick start
 Here's a complete ScriptCs example using our extensions. Because dynamic is only ever used in the compiled assembly this runs in Roslyn without issues.

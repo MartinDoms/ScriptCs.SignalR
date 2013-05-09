@@ -12,8 +12,8 @@ Some simple helpers for writing SignalR in C# scripts. The main purpose of this 
 Here's a complete ScriptCs example using our extensions. Because dynamic is only ever used in the compiled assembly this runs in Roslyn without issues.
 
 ```csharp
-var server = Require<SignalR>();
-server.CreateServer("http://localhost:8080");
+var signalR = Require<SignalR>();
+signalR.CreateServer("http://localhost:8080");
 Console.WriteLine("server created");
 Console.ReadLine();
 

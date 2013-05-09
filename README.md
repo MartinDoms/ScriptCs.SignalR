@@ -16,9 +16,11 @@ We are currently using a pre-release package on NuGet due to a dependency on Owi
 To run this example in some working directory:
 * Install ScriptCs.SignalR using Nuget (scriptcs installer does not currently support pre-release packages). `nuget install ScriptCs.SignalR -pre -o packages`
 * Run `scriptcs -install`
-* Paste the code below into your editor as save as `server.csx`
+* Paste the server code below into your editor as save as `server.csx`
+* Paste the client code below into your editor and save as `client.html`
 * Run `scriptcs server.csx`
 
+Server code:
 ```csharp
 var signalR = Require<SignalR>();
 signalR.CreateServer("http://localhost:8080");
@@ -35,4 +37,41 @@ public class MyHub : Hub
 		Clients.SendToCaller("addMessage", "Hello caller! Thanks for sending " + message);	
 	}
 }
+```
+
+Client code:
+```html
+  <script src="http://code.jquery.com/jquery-1.7.min.js" type="text/javascript"></script>
+  <script src="script/signalr.js" type="text/javascript"></script>
+  <script src="http://localhost:8080/signalr/hubs" type="text/javascript"></script>
+  <script type="text/javascript">
+  $(function () {
+
+	  var conn = $.connection.hub;
+	  conn.url = "http://localhost:8080/signalr";
+	  var myhub = conn.proxies.myhub;
+	  
+	  conn.start()
+		.done(function(state) {
+			console.log("connection open: " + state.host);
+			$("#broadcast").click(function () {
+				myhub.server.send($('#msg').val());
+          });
+		})
+		.fail(function(e) {
+			console.log("connection failed: " + e);
+		});	
+
+	  myhub.client.addMessage = function (data) {
+          $('#messages').append('<li>' + data + '</li>');
+      };
+		
+  });
+  </script>
+
+  <input type="text" id="msg" />
+  <input type="button" id="broadcast" value="broadcast" />
+
+  <ul id="messages">
+  </ul>
 ```

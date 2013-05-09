@@ -6,7 +6,7 @@ Some simple helpers for writing SignalR in C# scripts. The main purpose of this 
 
 #How do I get it?
 * This package is available on Nuget under the name ScriptCs.SignalR as a pre-release package. Use the -pre flag.
-* Install from NuGet: `NuGet install SctipCS.SignalR`
+* Install from NuGet: `NuGet install ScriptCS.SignalR`
 
 #Quick start
 Here's a complete ScriptCs example using our extensions. Because dynamic is only ever used in the compiled assembly this runs in Roslyn without issues.
